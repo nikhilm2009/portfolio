@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikhil Muthukumar, Research Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf8f4;
+    --warm-white: #f5f2ec;
+    --ink: #1a1814;
+    --ink-light: #3d3a34;
+    --ink-muted: #7a7268;
+    --rule: #d4cfc5;
+    --accent: #2a5298;
+    --accent-warm: #8b4513;
+    --tag-bg: #eee9e0;
+    --serif: 'Playfair Display', Georgia, serif;
+    --body: 'Source Serif 4', Georgia, serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.7;
+    min-height: 100vh;
+    /* Subtle paper texture */
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+
+  /* ---- LAYOUT ---- */
+  .page-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ---- HEADER ---- */
+  header {
+    padding: 4rem 0 3rem;
+    border-bottom: 1.5px solid var(--rule);
+    margin-bottom: 3.5rem;
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 2rem;
+  }
+
+  .name {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .name span {
+    display: block;
+    font-size: 0.38em;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+    margin-top: 0.5em;
+    font-family: var(--body);
+  }
+
+  .header-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+  }
+
+  .header-links a {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .header-links a:hover { color: var(--ink); }
+
+  /* ---- SUMMARY ---- */
+  .summary {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .summary p {
+    font-size: 1.05rem;
+    color: var(--ink-light);
+    max-width: 680px;
+    line-height: 1.8;
+  }
+
+  .summary p + p { margin-top: 1rem; }
+
+  /* ---- SECTION HEADERS ---- */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  section { margin-bottom: 4rem; }
+
+  /* ---- CARDS ---- */
+  .card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: box-shadow 0.25s, border-color 0.25s;
+    /* subtle warm shadow */
+    box-shadow: 0 1px 3px rgba(26,24,20,0.04), 0 4px 12px rgba(26,24,20,0.03);
+  }
+
+  .card:hover {
+    border-color: #bbb5aa;
+    box-shadow: 0 2px 8px rgba(26,24,20,0.08), 0 8px 24px rgba(26,24,20,0.06);
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.9rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--tag-bg);
+    color: var(--ink-muted);
+    padding: 0.2em 0.65em;
+    border-radius: 2px;
+  }
+
+  .tag.blue { background: #e8eef8; color: var(--accent); }
+  .tag.green { background: #e8f2e8; color: #2d6a2d; }
+  .tag.amber { background: #f5ede0; color: var(--accent-warm); }
+  .tag.gray { background: var(--tag-bg); color: var(--ink-muted); }
+
+  .card-year {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    margin-left: auto;
+  }
+
+  .card h3 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+    letter-spacing: -0.01em;
+  }
+
+  .card .venue {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .card p {
+    font-size: 0.92rem;
+    color: var(--ink-light);
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .card-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .card-link {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .card-link:hover {
+    border-color: var(--accent);
+    color: var(--ink);
+  }
+
+  .card-link.disabled {
+    color: var(--ink-muted);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* ---- PAST PROJECTS (smaller cards) ---- */
+  .past-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .past-card {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.3rem 1.5rem;
+    transition: box-shadow 0.2s;
+  }
+
+  .past-card:hover {
+    box-shadow: 0 2px 8px rgba(26,24,20,0.07);
+  }
+
+  .past-card h4 {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .past-card p {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+
+  /* ---- WRITINGS ---- */
+  .writing-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .writing-card:first-of-type { border-top: 1px solid var(--rule); }
+
+  .writing-card h3 {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.01em;
+  }
+
+  .writing-card p {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+
+  .writing-link {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    margin-top: 0.2rem;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+
+  .writing-link:hover { border-color: var(--accent); }
+
+  /* ---- FOOTER ---- */
+  footer {
+    border-top: 1.5px solid var(--rule);
+    padding: 2rem 0 3rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* ---- FADE IN ---- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  header { animation: fadeUp 0.6s ease both; }
+  .summary { animation: fadeUp 0.6s 0.1s ease both; }
+  section:nth-of-type(1) { animation: fadeUp 0.6s 0.15s ease both; }
+  section:nth-of-type(2) { animation: fadeUp 0.6s 0.2s ease both; }
+  section:nth-of-type(3) { animation: fadeUp 0.6s 0.25s ease both; }
+  section:nth-of-type(4) { animation: fadeUp 0.6s 0.3s ease both; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 600px) {
+    .header-inner { grid-template-columns: 1fr; }
+    .header-links { align-items: flex-start; }
+    .card-year { margin-left: 0; }
+    .writing-card { grid-template-columns: 1fr; }
+    .past-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header>
+    <div class="header-inner">
+      <div class="name">
+        Nikhil Muthukumar
+        <span>Class of 2027 &nbsp;·&nbsp; Archbishop Mitty High School, San Jose CA</span>
+      </div>
+      <div class="header-links">
+        <a href="https://github.com/nikhilm2009" target="_blank">github.com/nikhilm2009</a>
+        <a href="mailto:nikhil.muthuv@gmail.com">nikhil.muthuv@gmail.com</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <p>I am a high school researcher interested in what happens when complex adaptive systems
+    reduce to interpretable structure. My work spans machine learning, multi-agent reinforcement
+    learning, and environmental modeling, connected by a common question: when does a system
+    that appears chaotic have a cleaner underlying logic, and how do you surface it?</p>
+    <p>Recent projects include statewide wildfire hazard modeling with SHAP explainability,
+    multi-agent RL frameworks for strategic trade conflict, and architectural work on recurrent
+    deep Q-networks for economic phase-topology recovery. I also think and write about how
+    these questions show up beyond technical systems, in literature, philosophy, and
+    institutional behavior.</p>
+  </div>
+
+  <!-- RESEARCH PAPERS -->
+  <section>
+    <div class="section-label">Research Papers</div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag blue">Multi-Agent RL</span>
+        <span class="tag blue">Economics</span>
+        <span class="tag amber">Under Review, Lake Como AI/ML Systems</span>
+        <span class="card-year">2025</span>
+      </div>
+      <h3>Recovering Strategic Phase Structure in Recurrent Multi-Agent Socio-Economic Systems</h3>
+      <div class="venue">Submitted to AI/ML Systems Conference (Lake Como) 2025 &nbsp;·&nbsp; ASDRP, mentored by Dr. Phil Mui</div>
+      <p>Naive recurrent deep Q-networks fail to recover strategic phase structure in economic
+      multi-agent settings through three systematic failure modes: reward-scale domination,
+      credit assignment collapse across factorized instruments, and recurrent overwrite of sparse
+      strategic signals. This paper identifies those failure modes and introduces FactorDRQN , 
+      an architecture with factorized action heads, a tau-conditional stateless retaliation pathway,
+      and decomposed Bellman targets, achieving 92.2% cell-level regime agreement on
+      Deterrence, Transition, and Escalation phase recovery.</p>
+      <div class="card-links">
+        <a href="papers/factordrqn-lake-como.pdf" class="card-link">Full Paper (PDF) ↗</a>
+        <a href="https://github.com/nikhilm2009" class="card-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag blue">Multi-Agent RL</span>
+        <span class="tag blue">Trade Policy</span>
+        <span class="tag amber">Under Review, IEEE CIFEr</span>
+        <span class="card-year">2025</span>
+      </div>
+      <h3>Regime Structure in Adaptive Tariff Conflicts: A Multi-Agent Reinforcement Learning Analysis</h3>
+      <div class="venue">Submitted to IEEE CIFEr 2026 &nbsp;·&nbsp; ASDRP, mentored by Dr. Phil Mui</div>
+      <p>A multi-agent reinforcement learning framework calibrated to the 2018-19 US-China
+      trade episode. The central finding: across an 8×8 structural parameter grid, the
+      Deterrence-Escalation boundary tracks a single compact predictor, follower retaliation
+      capacity divided by leader tariff ceiling, with striking consistency. A second finding
+      reveals genuine coordination sensitivity near structural boundaries: identical parameters
+      produce divergent stable outcomes across learning runs, suggesting multiple attractors
+      whose selection depends on early exploration paths.</p>
+      <div class="card-links">
+        <a href="papers/tariff-conflict-marl.pdf" class="card-link">Full Paper (PDF) ↗</a>
+        <a href="https://github.com/nikhilm2009" class="card-link">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag green">Environmental ML</span>
+        <span class="tag green">Explainable AI</span>
+        <span class="tag gray">Synopsys Science Fair 2026</span>
+        <span class="card-year">2025-26</span>
+      </div>
+      <h3>ClariFIRE: Explainable AI-Driven Wildfire Hazard and Community Risk Mapping</h3>
+      <div class="venue">Independent Research &nbsp;·&nbsp; Presented at Synopsys Science Fair 2026</div>
+      <p>A statewide, interpretable wildfire hazard system built on a self-constructed California
+      geospatial dataset (2004-2025) integrating satellite, climate, drought, and terrain data.
+      Under realistic unbalanced testing at true California fire prevalence (~0.49%), ROC-AUC
+      reached 0.94. Under strict temporal holdout (training 2004-2020, testing 2022-2025),
+      ROC-AUC ranged 0.77-0.81, with the top 20% highest-risk areas capturing 51-66% of
+      actual wildfire events. SHAP explainability applied globally and at county level; hazard
+      predictions integrated with CDC Social Vulnerability Index to generate community risk maps.</p>
+      <div class="card-links">
+        <a href="https://nikhilm2009.github.io/wildfire/ClariFIRE/" class="card-link" target="_blank">ClariFIRE App ↗</a>
+        <a href="papers/clarifire-abstract.pdf" class="card-link">Abstract (PDF) ↗</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-meta">
+        <span class="tag green">Climate</span>
+        <span class="tag green">Aviation</span>
+        <span class="tag amber">Under Review, JHSS</span>
+        <span class="card-year">2024-25</span>
+      </div>
+      <h3>Improving Aviation Contrail Prediction and Avoidance Using Satellite Observations</h3>
+      <div class="venue">Independent Research &nbsp;·&nbsp; Synopsys Science Fair 2025 &nbsp;·&nbsp; Under peer review, Journal of High School Science</div>
+      <p>Combined in-flight humidity measurements with satellite-based contrail observations
+      to correct systematic errors in atmospheric prediction models, improving contrail forecast
+      accuracy from 75% to 85%. Analysis of targeted altitude adjustments on a subset of flights
+      demonstrated a 40-45% reduction in contrail climate warming contribution through refined
+      prediction and rerouting analysis.</p>
+      <div class="card-links">
+        <a href="papers/contrails.pdf" class="card-link">Full Paper (PDF) ↗</a>
+        <a href="https://github.com/nikhilm2009" class="card-link">GitHub ↗</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- WRITINGS -->
+  <section>
+    <div class="section-label">Selected Writing</div>
+
+    <div class="writing-card">
+      <div>
+        <div class="card-meta" style="margin-bottom:0.5rem;">
+          <span class="tag amber">Philosophy</span>
+          <span class="tag gray">John Locke Institute, High Commendation, Top 3%</span>
+          <span class="card-year">2025</span>
+        </div>
+        <h3>Dogma as Structure: A Philosophical Defense of Religious Norms</h3>
+        <p>A philosophical argument that religious dogmas are not divine micromanagement but
+        adaptive moral structures, ritual systems that balanced individual behavior with
+        collective stability across millennia. Engages Dawkins, Haidt, Boyer, Armstrong, Taylor,
+        and Smith. Awarded High Commendation (top 3% internationally) by the John Locke Institute.</p>
+      </div>
+      <a href="papers/john-locke-essay.pdf" class="writing-link">PDF ↗</a>
+    </div>
+
+  </section>
+
+  <!-- PAST PROJECTS -->
+  <section>
+    <div class="section-label">Past Projects</div>
+    <div class="past-grid">
+
+      <div class="past-card">
+        <h4>Autonomous Vehicle, Deep Learning</h4>
+        <p>Raspberry Pi autonomous vehicle with DAVE-2 CNN control, lane detection (OpenCV),
+        and object recognition (MobileNet-SSD). ASDRP, Fall 2024.</p>
+        <a href="presentations/autonomous-vehicle.mp4" class="card-link">Video ↗</a>
+      </div>
+
+      <div class="past-card">
+        <h4>Exoplanet Detection, Transit Photometry</h4>
+        <p>ML models for exoplanet detection from Kepler transit photometry using SMOTE-augmented
+        training and feature engineering. Inspirit AI Scholars, Spring 2024.</p>
+        <a href="#" class="card-link">Presentation ↗</a>
+      </div>
+
+      <div class="past-card">
+        <h4>Bioinformatics, RNF175 Cancer Research</h4>
+        <p>Analysis of RNF175 gene involvement in cancer and Alzheimer's using AlphaFold and
+        expression data. Rosetta Institute at UC Berkeley, Summer 2024.</p>
+      </div>
+
+      <div class="past-card">
+        <h4>Mars Rover, Lego EV3</h4>
+        <p>Rocker-bogie suspension rover built in middle school. Video documentation available.</p>
+        <a href="https://youtu.be/Kcw2hWk1T2M" class="card-link" target="_blank">Video ↗</a>
+      </div>
+
+      <div class="past-card">
+        <h4>Automated Candy Catapult, Arduino</h4>
+        <p>Arduino-powered catapult with automated launch mechanism. Video documentation available.</p>
+        <a href="https://youtu.be/YSfVRJUIqr8" class="card-link" target="_blank">Video ↗</a>
+      </div>
+
+      <div class="past-card">
+        <h4>Infinity Mirror</h4>
+        <p>Electronics and optics project. Video documentation available.</p>
+        <a href="https://youtu.be/__7pU7A4NKI" class="card-link" target="_blank">Video ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Nikhil Muthukumar &nbsp;·&nbsp; Class of 2027 &nbsp;·&nbsp; San Jose, CA</p>
+    <p><a href="https://github.com/nikhilm2009">github.com/nikhilm2009</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
