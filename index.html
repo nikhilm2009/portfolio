@@ -400,8 +400,8 @@
 
   <div class="summary">
     <p>I am a high school researcher interested in when complex adaptive systems reveal interpretable structure. My work spans machine learning, multi-agent reinforcement learning, and environmental modeling. Across these projects, I keep returning to the same question: when does a system that appears chaotic have cleaner underlying logic, and how do you surface it?</p>
-    <p>Recent work includes a first-author paper on multi-agent reinforcement learning for trade conflict accepted to IEEE CIFEr 2026, which I will present in Tokyo this September. I am also extending this work through a recurrent deep Q-network architecture, with a preprint manuscript currently under review. At Wharton's Global Youth Data Science Academy, I developed predictive models for hospital readmission risk across 101,000 patient encounters.</p>
-    <p>I also write about how these questions extend beyond technical systems. My 2025 John Locke essay on religious norms as adaptive social structure received High Commendation, and my 2026 essay on human responses to conversational AI has been shortlisted, with final results due in October.</p>
+    <p>Recent work includes a first-author paper on multi-agent reinforcement learning for trade conflict, accepted to IEEE CIFEr 2026 and presented in Tokyo this September. I have extended that work into a recurrent architecture for the same environment, with a second first-author manuscript currently under review. At Wharton's Global Youth Data Science Academy, I built predictive models for hospital readmission risk across 101,766 patient encounters.</p>
+    <p>I also write about how these questions extend beyond technical systems. My 2025 John Locke essay argued that religious norms are adaptive social structures rather than arbitrary rules, and received High Commendation. My 2026 essay asks why people are hostile to conversational AI, and what that hostility reveals about how we decide another mind is present; it has been shortlisted, with final results due in October.</p>
   </div>
 
   <div class="two-col">
@@ -419,9 +419,10 @@
           <span class="card-year">2025-26</span>
         </div>
         <h3>Regime Structure in Adaptive Tariff Conflicts: A Multi-Agent Reinforcement Learning Analysis</h3>
-        <div class="venue">IEEE CIFEr 2026 &nbsp;·&nbsp; Presenting in Tokyo, September 2026 &nbsp;·&nbsp; Mentored by Dr. Phil Mui, SVP AI Cloud, Salesforce (MIT PhD, Computational Game Theory)</div>
+        <div class="venue">IEEE CIFEr 2026 &nbsp;·&nbsp; Presented in Tokyo, September 2026 &nbsp;·&nbsp; Mentored by Dr. Phil Mui</div>
         <p>A multi-agent RL framework calibrated to the 2018-19 US-China trade episode. The central finding: across an 8x8 structural parameter grid, the Deterrence-Escalation boundary tracks a single compact predictor (follower retaliation capacity divided by leader tariff ceiling) with striking consistency. A second finding reveals genuine coordination sensitivity near structural boundaries, where identical parameters produce divergent stable outcomes across learning runs.</p>
         <div class="card-links">
+          <a href="https://ieeexplore.ieee.org/document/11692370" class="card-link" target="_blank">IEEE Xplore ↗</a>
           <a href="papers/tariff-conflict-marl.pdf" class="card-link" target="_blank">Full Paper (PDF) ↗</a>
           <a href="https://github.com/nikhilm2009" class="card-link" target="_blank">GitHub ↗</a>
         </div>
@@ -437,10 +438,9 @@
         </div>
         <h3>Recovering Strategic Phase Structure in Recurrent Multi-Agent Socio-Economic Systems</h3>
         <div class="venue">Preprint manuscript &nbsp;·&nbsp; Under review &nbsp;·&nbsp; ASDRP, mentored by Dr. Phil Mui</div>
-        <p>Identifies three systematic failure modes in recurrent deep Q-networks applied to strategic economic settings: reward-scale domination, credit assignment collapse across factorized instruments, and recurrent overwrite of sparse strategic signals. Introduces FactorDRQN, an architecture with factorized action heads, a tau-conditional stateless retaliation pathway, and decomposed Bellman targets, achieving 92.2% cell-level regime agreement on Deterrence, Transition, and Escalation phase recovery.</p>
+        <p>Standard evaluation asks whether a learned policy earns good returns. This work asks whether it recovers the strategic structure of the environment at all. Using a two-country trade conflict as the testbed and tabular double Q-learning as the reference topology, it identifies three systematic failure modes in joint recurrent deep Q-networks — reward-scale domination, credit assignment collapse across factorized instruments, and recurrent overwrite of sparse strategic signals — and the architectural conditions that correct them: factorized action heads, a tau-conditional stateless retaliation pathway, and decomposed Bellman targets. Instantiated as FactorDRQN, the resulting system recovers 62 of 64 cells (96.9%) of the reference phase topology on the primary parameter grid and 93.8% under an independent perturbation axis.</p>
         <div class="card-links">
-          <a href="papers/factordrqn-lake-como.pdf" class="card-link" target="_blank">Full Paper (PDF) ↗</a>
-          <a href="https://github.com/nikhilm2009" class="card-link" target="_blank">GitHub ↗</a>
+          <span style="font-family:var(--mono);font-size:0.67rem;letter-spacing:0.06em;color:var(--ink-muted);">Paper available on request while under review.</span>
         </div>
       </div>
 
